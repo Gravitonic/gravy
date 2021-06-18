@@ -19,7 +19,9 @@
 
 \RequirePackage[MnSymbol]{mathspec}
 
-\setmathsfont[Numbers={Lining,Proportional}]{Minion Pro}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Minion Pro}
+
+\setminwhitespace[1200]
 
 \newcommand{\nodate}{false}
 \newcommand{\true}{true}
@@ -31,8 +33,6 @@
 
 % update \@maketitle from /usr/local/texlive/2021/texmf-dist/tex/latex/koma-script/scrartcl.cls
 % lines actually edited have a comment on them
-
-\makeatletter
 
 \renewcommand*{\@maketitle}{%
 \global\@topnum=\z@
@@ -75,5 +75,3 @@
 \par
 \vskip 2em
 }%
-
-\makeatother
