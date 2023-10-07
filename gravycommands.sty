@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gravycommands}
+
+% derivatves
+% command names inspired by package physics
+
+% see: https://tex.stackexchange.com/a/523272
+\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+
+% see: https://tug.org/TUGboat/tb18-1/tb54becc.pdf (p. 46)
+\newcommand*{\deriv}[3][]{%
+\frac{\dd^{#1}#2}{\dd #3^{#1}}}
+\newcommand*{\pderiv}[3][]{%
+\frac{\partial^{#1}#2}{\partial #3^{#1}}}
+
+% aliases
+\let\dv\deriv
+\let\pdv\pderiv

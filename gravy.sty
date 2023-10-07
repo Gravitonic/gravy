@@ -1,0 +1,74 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gravy}
+
+\newif\if@gravy@nodate\@gravy@nodatefalse
+\DeclareOption{nodate}{
+  \@gravy@nodatetrue
+}
+
+\ProcessOptions*
+
+% koma-script inserts the date using {\usekomafont{date}{\@date \par}} followed by a 1em \vskip
+% subtract:
+% - 1em for the height of the date itself
+% - 1em for the space added afterwards
+% - one \parskip for the space added by \par
+\if@gravy@nodate
+\date{~\vspace{-2em \@minus \parskip}}
+\fi
+
+% font setup
+\RequirePackage[T1]{fontenc}
+
+\RequirePackage{libertine}
+\RequirePackage[libertine]{newtxmath}
+\RequirePackage[scaled=0.83]{FiraMono}
+
+% page setup
+\KOMAoptions{
+  paper=letter,
+  usegeometry,
+}
+
+\RequirePackage{geometry}
+\geometry{
+  paper=letterpaper,
+  hmargin=132pt,
+  top=84pt,
+  bottom=156pt
+}
+
+% improve ligature copy-pasting
+% see: https://tex.stackexchange.com/a/64191
+\pdfgentounicode=1
+\input{glyphtounicode}
+
+% list formatting
+\RequirePackage[shortlabels]{enumitem}
+\AtBeginDocument{\setlist{noitemsep}}
+
+% footer
+\RequirePackage{fancyhdr}
+\fancypagestyle{gravy}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyhfinit{\sffamily}
+  \fancyfoot[LO,RE]{\@title}
+  \fancyfoot[RO,LE]{\thepage}
+}
+\pagestyle{gravy}
+
+% hyperlinks
+\RequirePackage{hyperref}
+\hypersetup{
+  linktoc=all,
+  colorlinks=true,
+}
+
+% math
+\RequirePackage{mathtools}
+\RequirePackage{esint}
+\RequirePackage{esdiff}
+
+\RequirePackage{gravycommands}
