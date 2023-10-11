@@ -45,7 +45,11 @@
 
 % list formatting
 \RequirePackage[shortlabels]{enumitem}
-\AtBeginDocument{\setlist{noitemsep}}
+\AtBeginDocument{\setlist[itemize,enumerate,1]{leftmargin=0pt}}
+\AtBeginDocument{\setlist{listparindent=\parindent,noitemsep}}
+
+% typography
+\RequirePackage{microtype}
 
 % footer
 \RequirePackage{fancyhdr}
@@ -59,16 +63,15 @@
 }
 \pagestyle{gravy}
 
+% math
+\RequirePackage{mathtools}
+\RequirePackage{esint}
+
 % hyperlinks
 \RequirePackage{hyperref}
 \hypersetup{
   linktoc=all,
   colorlinks=true,
 }
-
-% math
-\RequirePackage{mathtools}
-\RequirePackage{esint}
-\RequirePackage{esdiff}
 
 \RequirePackage{gravycommands}
