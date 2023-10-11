@@ -60,9 +60,9 @@
 \cfoot{} % remove default page number in center
 \ofoot{\thepage}
 
-\renewcommand*{\partpagestyle}{scrheadings}
-\renewcommand*{\chapterpagestyle}{scrheadings}
-\renewcommand*{\indexpagestyle}{scrheadings}
+\ifdefined\partpagestyle\renewcommand*{\partpagestyle}{scrheadings}\fi
+\ifdefined\chapterpagestyle\renewcommand*{\chapterpagestyle}{scrheadings}\fi
+\ifdefined\indexpagestyle\renewcommand*{\indexpagestyle}{scrheadings}\fi
 
 % math
 \RequirePackage{mathtools}
