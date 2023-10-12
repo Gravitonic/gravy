@@ -56,13 +56,18 @@
 \pagestyle{scrheadings}
 
 \setkomafont{pagefoot}{\normalfont\sffamily}
-\ifoot{\@title}
-\cfoot{} % remove default page number in center
-\ofoot{\thepage}
 
-\ifdefined\partpagestyle\renewcommand*{\partpagestyle}{scrheadings}\fi
-\ifdefined\chapterpagestyle\renewcommand*{\chapterpagestyle}{scrheadings}\fi
-\ifdefined\indexpagestyle\renewcommand*{\indexpagestyle}{scrheadings}\fi
+\ihead[]{}
+\chead[]{}
+\ohead[]{}
+\if@chapter
+  \automark[section]{chapter}
+  \ifoot[]{\headmark}
+\else
+  \ifoot[]{\@title}
+\fi
+\cfoot[]{}
+\ofoot[\pagemark]{\pagemark}
 
 % math
 \RequirePackage{mathtools}
