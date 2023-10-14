@@ -45,8 +45,15 @@
 
 % list formatting
 \RequirePackage[shortlabels]{enumitem}
-\AtBeginDocument{\setlist[itemize,enumerate,1]{leftmargin=0pt}}
-\AtBeginDocument{\setlist{listparindent=\parindent,noitemsep}}
+\setlist[itemize,enumerate,1]{leftmargin=0pt}
+\setlist[itemize,3]{label=\textopenbullet}
+\setlist{listparindent=\parindent,noitemsep}
+
+\AtBeginDocument{
+  \ifdim\parskip=0pt
+    \setlist*{topsep=0.5em}
+  \fi
+}
 
 % typography
 \RequirePackage{microtype}
