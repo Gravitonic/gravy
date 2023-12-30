@@ -14,15 +14,16 @@
 % - 1em for the space added afterwards
 % - one \parskip for the space added by \par
 \if@gravy@nodate
-\date{~\vspace{-2em \@minus \parskip}}
+  \date{~\vspace{-2em \@minus \parskip}}
 \fi
 
 % font setup
 \RequirePackage[T1]{fontenc}
 
 \RequirePackage{libertine}
-\RequirePackage[libertine]{newtxmath}
 \RequirePackage[scaled=0.83]{FiraMono}
+% newtxmath for libertine math font is loaded later, since it conflicts with amsthm
+% https://tex.stackexchange.com/a/520114
 
 % page setup
 \KOMAoptions{
@@ -79,6 +80,172 @@
 % math
 \RequirePackage{mathtools}
 \RequirePackage{esint}
+
+% theorems
+\RequirePackage{amsthm}
+\RequirePackage{thmtools}
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\RequirePackage{xcolor}
+
+% tcolorbox sets \parindent to zero inside boxes, so we need to save it to restore paragraph indentation in boxes
+\newlength\tmpparindent
+\setlength\tmpparindent\parindent
+
+\tcbset{
+  gravyboxbase/.style={
+    blankest,
+    breakable,
+    beforeafter skip balanced=0.5\baselineskip,
+    top=4pt,
+    bottom=4pt,
+    before upper={\setlength\parindent\tmpparindent}, % restore paragraph indentation
+    lines before break=3,
+  },
+  gravyboxgray/.style={
+    gravyboxbase,
+    borderline west={3pt}{-9pt}{black!50},
+  },
+  gravyboxblue/.style={
+    gravyboxbase,
+    borderline west={3pt}{-9pt}{blue!40},
+  },
+  gravyboxgreen/.style={
+    gravyboxbase,
+    borderline west={3pt}{-9pt}{green!40},
+  },
+  gravyboxred/.style={
+    gravyboxbase,
+    borderline west={3pt}{-9pt}{red!40},
+  },
+  gravyboxorange/.style={
+    gravyboxbase,
+    borderline west={3pt}{-9pt}{orange!40},
+  },
+}
+
+% increase list indentation inside theorem environments
+% otherwise, hanging list bullets in margin would overlap left borderline
+\newenvironment{thmlist}{%
+  \setlist[itemize,enumerate,1]{leftmargin=*}
+}{%
+  \setlist[itemize,enumerate,1]{leftmargin=0pt}
+}
+
+% declare a theorem style with base/default styles
+% usage: \declaregravytheoremstyle{<options>}{<stylename>}
+\newcommand\declaregravytheoremstyle[2][]{
+  \declaretheoremstyle[
+    preheadhook=\begin{thmlist},
+    postfoothook=\end{thmlist},
+    #1
+  ]{gravythm#2}
+}
+
+\declaregravytheoremstyle[
+  headfont=\sffamily\bfseries,
+]{gray}
+\declaregravytheoremstyle[
+  headfont=\sffamily\bfseries\color{blue!80},
+]{blue}
+\declaregravytheoremstyle[
+  headfont=\sffamily\bfseries\color{green!80},
+]{green}
+\declaregravytheoremstyle[
+  headfont=\sffamily\bfseries\color{red!80},
+]{red}
+\declaregravytheoremstyle[
+  headfont=\sffamily\bfseries\color{orange!80},
+]{orange}
+
+% declare a theorem environment with a tcolorbox
+% usage: \declaregravytheorem{<env name>}{<color>}{<extra declaretheorem options>}
+\newcommand{\declaregravytheorem}[3]{
+  \declaretheorem[
+    style=gravythm#2,
+    #3
+  ]{#1}
+  \tcolorboxenvironment{#1}{gravybox#2}
+}
+
+% Theorem, Lemma, Corollary, Proposition, Conjecture, Criterion, Assertion
+% blue
+% numbered by default, starred variant to suppress numbering
+\declaregravytheorem{theorem}{blue}{}
+\declaregravytheorem{theorem*}{blue}{numbered=no}
+
+\declaregravytheorem{lemma}{blue}{sibling=theorem}
+\declaregravytheorem{lemma*}{blue}{numbered=no}
+
+\declaregravytheorem{corollary}{blue}{sibling=theorem}
+\declaregravytheorem{corollary*}{blue}{numbered=no}
+
+\declaregravytheorem{proposition}{blue}{sibling=theorem}
+\declaregravytheorem{proposition*}{blue}{numbered=no}
+
+\declaregravytheorem{conjecture}{blue}{sibling=theorem}
+\declaregravytheorem{conjecture*}{blue}{numbered=no}
+
+\declaregravytheorem{criterion}{blue}{sibling=theorem}
+\declaregravytheorem{criterion*}{blue}{numbered=no}
+
+\declaregravytheorem{assertion}{blue}{sibling=theorem}
+\declaregravytheorem{assertion*}{blue}{numbered=no}
+
+% Definition, Algorithm
+% red (TODO: use vocab color)
+% numbered by default, starred variant to suppress numbering
+\declaregravytheorem{definition}{orange}{}
+\declaregravytheorem{definition*}{orange}{numbered=no}
+
+\declaregravytheorem{algorithm}{orange}{sibling=definition}
+\declaregravytheorem{algorithm*}{orange}{numbered=no}
+
+% Remark, Note
+% orange
+% not numbered
+\declaregravytheorem{remark}{green}{numbered=no}
+\declaregravytheorem{note}{green}{sibling=remark,numbered=no}
+
+% Example, Problem, Question
+% green
+% numbered by default, starred variant to suppress numbering
+\declaregravytheorem{example}{green}{}
+\declaregravytheorem{example*}{green}{numbered=no}
+
+\declaregravytheorem{problem}{green}{sibling=example}
+\declaregravytheorem{problem*}{green}{numbered=no}
+
+\declaregravytheorem{question}{green}{sibling=example}
+\declaregravytheorem{question*}{green}{numbered=no}
+
+\newcommand\tmpqedsymbol{}
+
+% define proof* with no QED symbol
+% \proofname comes from amsthm.sty (by default, expands to `Proof`)
+\newenvironment{proof*}[1][\proofname]{%
+  \renewcommand\tmpqedsymbol\qedsymbol
+  \renewcommand\qedsymbol{}
+  \begin{proof}[#1]
+}{%
+  \end{proof}
+  \renewcommand\qedsymbol\tmpqedsymbol
+}
+
+% define solution environment
+% proof environment with default name `Solution` and no QED symbol
+\newenvironment{solution}[1][Solution]{%
+  \begin{proof*}[#1]
+}{%
+  \end{proof*}
+}
+
+% math font
+% needs to be loaded after amsthm
+% https://tex.stackexchange.com/a/520114
+\RequirePackage[libertine]{newtxmath}
 
 % hyperlinks
 \RequirePackage{hyperref}
