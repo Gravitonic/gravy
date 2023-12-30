@@ -7,7 +7,7 @@
 \RequirePackage{tcolorbox}
 \tcbuselibrary{breakable, skins}
 
-\RequirePackage{xcolor}
+\RequirePackage{gravycolors}
 
 % tcolorbox sets \parindent to zero inside boxes, so we need to save it to restore paragraph indentation in boxes
 \newlength\tmpparindent
@@ -25,23 +25,23 @@
   },
   gravyboxgray/.style={
     gravyboxbase,
-    borderline west={3pt}{-9pt}{black!50},
+    borderline west={3pt}{-9pt}{gravy@black!50},
   },
   gravyboxblue/.style={
     gravyboxbase,
-    borderline west={3pt}{-9pt}{blue!40},
+    borderline west={3pt}{-9pt}{gravy@blue!50},
   },
   gravyboxgreen/.style={
     gravyboxbase,
-    borderline west={3pt}{-9pt}{green!40},
+    borderline west={3pt}{-9pt}{gravy@green!50},
   },
   gravyboxred/.style={
     gravyboxbase,
-    borderline west={3pt}{-9pt}{red!40},
+    borderline west={3pt}{-9pt}{gravy@red!50},
   },
   gravyboxorange/.style={
     gravyboxbase,
-    borderline west={3pt}{-9pt}{orange!40},
+    borderline west={3pt}{-9pt}{gravy@orange!50},
   },
 }
 
@@ -64,19 +64,19 @@
 }
 
 \declaregravytheoremstyle[
-  headfont=\sffamily\bfseries,
+  headfont=\sffamily\bfseries\color{gravy@black},
 ]{gray}
 \declaregravytheoremstyle[
-  headfont=\sffamily\bfseries\color{blue!80},
+  headfont=\sffamily\bfseries\color{gravy@blue},
 ]{blue}
 \declaregravytheoremstyle[
-  headfont=\sffamily\bfseries\color{green!80},
+  headfont=\sffamily\bfseries\color{gravy@green},
 ]{green}
 \declaregravytheoremstyle[
-  headfont=\sffamily\bfseries\color{red!80},
+  headfont=\sffamily\bfseries\color{gravy@red},
 ]{red}
 \declaregravytheoremstyle[
-  headfont=\sffamily\bfseries\color{orange!80},
+  headfont=\sffamily\bfseries\color{gravy@orange},
 ]{orange}
 
 % declare a theorem environment with a tcolorbox
@@ -116,17 +116,17 @@
 % Definition, Algorithm
 % red (TODO: use vocab color)
 % numbered by default, starred variant to suppress numbering
-\declaregravytheorem{definition}{orange}{}
-\declaregravytheorem{definition*}{orange}{numbered=no}
+\declaregravytheorem{definition}{red}{}
+\declaregravytheorem{definition*}{red}{numbered=no}
 
-\declaregravytheorem{algorithm}{orange}{sibling=definition}
-\declaregravytheorem{algorithm*}{orange}{numbered=no}
+\declaregravytheorem{algorithm}{red}{sibling=definition}
+\declaregravytheorem{algorithm*}{red}{numbered=no}
 
 % Remark, Note
 % orange
 % not numbered
-\declaregravytheorem{remark}{green}{numbered=no}
-\declaregravytheorem{note}{green}{sibling=remark,numbered=no}
+\declaregravytheorem{remark}{orange}{numbered=no}
+\declaregravytheorem{note}{orange}{sibling=remark,numbered=no}
 
 % Example, Problem, Question
 % green

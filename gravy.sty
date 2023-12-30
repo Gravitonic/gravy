@@ -17,6 +17,8 @@
   \date{~\vspace{-2em \@minus \parskip}}
 \fi
 
+% \RequirePackage{gravycolors}
+
 % theorems
 % loads amsthm, so it needs to be loaded before newtxmath math fonts (https://tex.stackexchange.com/a/520114)
 \RequirePackage{gravytheorems}
@@ -86,9 +88,14 @@
 
 % hyperlinks
 \RequirePackage{hyperref}
+\RequirePackage{gravycolors}
+
 \hypersetup{
   linktoc=all,
   colorlinks=true,
+  urlcolor=gravy@blue,
+  linkcolor=gravy@blue,
+  citecolor=gravy@green,
 }
 
 \RequirePackage{gravycommands}
