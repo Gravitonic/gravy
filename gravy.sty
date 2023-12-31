@@ -47,6 +47,16 @@
 \pdfgentounicode=1
 \input{glyphtounicode}
 
+% hanging heading numbers
+\renewcommand\sectionlinesformat[4]{%
+  \makebox[0pt][r]{#3}{#4}%
+}
+\ifdefined\chapterlinesformat
+  \renewcommand\chapterlinesformat[3]{%
+    \makebox[0pt][r]{#2}#3%
+  }
+\fi
+
 % list formatting
 \RequirePackage[shortlabels]{enumitem}
 \setlist[itemize,enumerate,1]{leftmargin=0pt}
@@ -72,10 +82,10 @@
 \chead[]{}
 \ohead[]{}
 \if@chapter
-\automark[section]{chapter}
-\ifoot[]{\headmark}
+  \automark[section]{chapter}
+  \ifoot[]{\headmark}
 \else
-\ifoot[]{\@title}
+  \ifoot[]{\@title}
 \fi
 \cfoot[]{}
 \ofoot[\pagemark]{\pagemark}
