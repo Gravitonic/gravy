@@ -1,6 +1,34 @@
 {
   "includes": {},
-  "macros": {},
+  "macros": {
+    "dd{}": {
+      "snippet": "dd{${1:argument}}"
+    },
+    "deriv{}{}": {
+      "snippet": "deriv{${1:top}}{${2:bottom}}"
+    },
+    "deriv[]{}{}": {
+      "snippet": "deriv[${3:pow}]{${1:top}}{${2:bottom}}"
+    },
+    "dv{}{}": {
+      "snippet": "dv{${1:top}}{${2:bottom}}"
+    },
+    "dv[]{}{}": {
+      "snippet": "dv[${3:pow}]{${1:top}}{${2:bottom}}"
+    },
+    "pderiv{}{}": {
+      "snippet": "pderiv{${1:top}}{${2:bottom}}"
+    },
+    "pderiv[]{}{}": {
+      "snippet": "pderiv[${3:pow}]{${1:top}}{${2:bottom}}"
+    },
+    "pdv{}{}": {
+      "snippet": "pdv{${1:top}}{${2:bottom}}"
+    },
+    "pdv[]{}{}": {
+      "snippet": "pdv[${3:pow}]{${1:top}}{${2:bottom}}"
+    }
+  },
   "envs": {
     "theorem": {},
     "theorem[]": {

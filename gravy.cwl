@@ -100,3 +100,14 @@
 \begin{solution}
 \begin{solution}[caption]
 \end{solution}
+
+\dd{argument}
+\deriv{top}{bottom}
+\deriv[pow]{top}{bottom}
+\dv{top}{bottom}
+\dv[pow]{top}{bottom}
+\pderiv{top}{bottom}
+\pderiv[pow]{top}{bottom}
+\pdv{top}{bottom}
+\pdv[pow]{top}{bottom}
+
