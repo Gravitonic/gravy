@@ -27,6 +27,9 @@
     },
     "pdv[]{}{}": {
       "snippet": "pdv[${3:pow}]{${1:top}}{${2:bottom}}"
+    },
+    "vocab{}": {
+      "snippet": "vocab{${1:term}}"
     }
   },
   "envs": {

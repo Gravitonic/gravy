@@ -111,3 +111,4 @@
 \pdv{top}{bottom}
 \pdv[pow]{top}{bottom}
 
+\vocab{term}

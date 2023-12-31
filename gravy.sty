@@ -72,10 +72,10 @@
 \chead[]{}
 \ohead[]{}
 \if@chapter
-  \automark[section]{chapter}
-  \ifoot[]{\headmark}
+\automark[section]{chapter}
+\ifoot[]{\headmark}
 \else
-  \ifoot[]{\@title}
+\ifoot[]{\@title}
 \fi
 \cfoot[]{}
 \ofoot[\pagemark]{\pagemark}
@@ -84,9 +84,15 @@
 \RequirePackage{mathtools}
 \RequirePackage{esint}
 
+% vocab
+\RequirePackage{gravycolors}
+
+\newcommand{\vocab}[1]{%
+  \textbf{\color{gravy@vocab}#1}%
+}
+
 % hyperlinks
 \RequirePackage{hyperref}
-\RequirePackage{gravycolors}
 
 \hypersetup{
   linktoc=all,
