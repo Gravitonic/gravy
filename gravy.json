@@ -1,0 +1,148 @@
+{
+  "includes": {},
+  "macros": {},
+  "envs": {
+    "theorem": {},
+    "theorem[]": {
+      "name": "theorem",
+      "snippet": "[${1:options}]"
+    },
+    "theorem*": {},
+    "theorem*[]": {
+      "name": "theorem*",
+      "snippet": "[${1:options}]"
+    },
+    "lemma": {},
+    "lemma[]": {
+      "name": "lemma",
+      "snippet": "[${1:options}]"
+    },
+    "lemma*": {},
+    "lemma*[]": {
+      "name": "lemma*",
+      "snippet": "[${1:options}]"
+    },
+    "corollary": {},
+    "corollary[]": {
+      "name": "corollary",
+      "snippet": "[${1:options}]"
+    },
+    "corollary*": {},
+    "corollary*[]": {
+      "name": "corollary*",
+      "snippet": "[${1:options}]"
+    },
+    "proposition": {},
+    "proposition[]": {
+      "name": "proposition",
+      "snippet": "[${1:options}]"
+    },
+    "proposition*": {},
+    "proposition*[]": {
+      "name": "proposition*",
+      "snippet": "[${1:options}]"
+    },
+    "conjecture": {},
+    "conjecture[]": {
+      "name": "conjecture",
+      "snippet": "[${1:options}]"
+    },
+    "conjecture*": {},
+    "conjecture*[]": {
+      "name": "conjecture*",
+      "snippet": "[${1:options}]"
+    },
+    "criterion": {},
+    "criterion[]": {
+      "name": "criterion",
+      "snippet": "[${1:options}]"
+    },
+    "criterion*": {},
+    "criterion*[]": {
+      "name": "criterion*",
+      "snippet": "[${1:options}]"
+    },
+    "assertion": {},
+    "assertion[]": {
+      "name": "assertion",
+      "snippet": "[${1:options}]"
+    },
+    "assertion*": {},
+    "assertion*[]": {
+      "name": "assertion*",
+      "snippet": "[${1:options}]"
+    },
+    "definition": {},
+    "definition[]": {
+      "name": "definition",
+      "snippet": "[${1:options}]"
+    },
+    "definition*": {},
+    "definition*[]": {
+      "name": "definition*",
+      "snippet": "[${1:options}]"
+    },
+    "algorithm": {},
+    "algorithm[]": {
+      "name": "algorithm",
+      "snippet": "[${1:options}]"
+    },
+    "algorithm*": {},
+    "algorithm*[]": {
+      "name": "algorithm*",
+      "snippet": "[${1:options}]"
+    },
+    "remark": {},
+    "remark[]": {
+      "name": "remark",
+      "snippet": "[${1:options}]"
+    },
+    "note": {},
+    "note[]": {
+      "name": "note",
+      "snippet": "[${1:options}]"
+    },
+    "example": {},
+    "example[]": {
+      "name": "example",
+      "snippet": "[${1:options}]"
+    },
+    "example*": {},
+    "example*[]": {
+      "name": "example*",
+      "snippet": "[${1:options}]"
+    },
+    "problem": {},
+    "problem[]": {
+      "name": "problem",
+      "snippet": "[${1:options}]"
+    },
+    "problem*": {},
+    "problem*[]": {
+      "name": "problem*",
+      "snippet": "[${1:options}]"
+    },
+    "question": {},
+    "question[]": {
+      "name": "question",
+      "snippet": "[${1:options}]"
+    },
+    "question*": {},
+    "question*[]": {
+      "name": "question*",
+      "snippet": "[${1:options}]"
+    },
+    "proof*": {},
+    "proof*[]": {
+      "name": "proof*",
+      "snippet": "[${1:caption}]"
+    },
+    "solution": {},
+    "solution[]": {
+      "name": "solution",
+      "snippet": "[${1:caption}]"
+    }
+  },
+  "options": [],
+  "keyvals": []
+}
