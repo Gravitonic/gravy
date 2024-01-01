@@ -102,14 +102,14 @@
 }
 
 % hyperlinks
-\RequirePackage{hyperref}
-
-\hypersetup{
+\RequirePackage[
   linktoc=all,
   colorlinks=true,
   urlcolor=gravy@blue,
   linkcolor=gravy@blue,
   citecolor=gravy@green,
-}
+  addtopdfcreator=gravyTeX,
+  pdfusetitle
+]{hyperref}
 
 \RequirePackage{gravycommands}
