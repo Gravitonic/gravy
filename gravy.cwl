@@ -112,3 +112,5 @@
 \pdv[pow]{top}{bottom}
 
 \vocab{term}
+
+\auto

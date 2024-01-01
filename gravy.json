@@ -30,7 +30,8 @@
     },
     "vocab{}": {
       "snippet": "vocab{${1:term}}"
-    }
+    },
+    "auto": {}
   },
   "envs": {
     "theorem": {},

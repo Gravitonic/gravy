@@ -1,17 +1,121 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{gravycommands}
 
+% bracket sizing
+\ExplSyntaxOn
+
+% variable prefix: t for text version, macro name for macro version
+\tl_const:Nn \c_gravy_tparen_tl {       ( }
+\tl_const:Nn \c_gravy_lparen_tl { \lparen }
+\tl_const:Nn \c_gravy_tbrack_tl {       [ }
+\tl_const:Nn \c_gravy_lbrack_tl { \lbrack }
+\tl_const:Nn \c_gravy_tbrace_tl {      \{ }
+\tl_const:Nn \c_gravy_lbrace_tl { \lbrace }
+\tl_const:Nn \c_gravy_tangle_tl {       < }
+\tl_const:Nn \c_gravy_langle_tl { \langle }
+\tl_const:Nn \c_gravy_tvert_tl  {       | }
+\tl_const:Nn \c_gravy_vert_tl   {   \vert }
+\tl_const:Nn \c_gravy_lvert_tl  {  \lvert }
+\tl_const:Nn \c_gravy_tVert_tl  {      \| }
+\tl_const:Nn \c_gravy_Vert_tl   {   \Vert }
+\tl_const:Nn \c_gravy_lVert_tl  {  \lVert }
+
+% \auto: automatic bracket sizing
+% automatically sizes detected delimiters
+% example usage: \auto(\frac{1}{2})
+\NewDocumentCommand\auto{ m }{
+  \tl_set:Nx \l_firstchar_tl { \tl_head:n { #1 } }
+
+  \tl_case:Nn \l_firstchar_tl {
+    \c_gravy_tparen_tl { \autotparens #1 }
+    \c_gravy_lparen_tl { \autolparens #1 }
+    \c_gravy_tbrack_tl { \autotbracks #1 }
+    \c_gravy_lbrack_tl { \autolbracks #1 }
+    \c_gravy_tbrace_tl { \autotbraces #1 }
+    \c_gravy_lbrace_tl { \autolbraces #1 }
+    \c_gravy_tangle_tl { \autotangles #1 }
+    \c_gravy_langle_tl { \autolangles #1 }
+    \c_gravy_tvert_tl  {  \autotverts #1 }
+    \c_gravy_vert_tl   {   \autoverts #1 }
+    \c_gravy_lvert_tl  {  \autolverts #1 }
+    \c_gravy_tVert_tl  {  \autotVerts #1 }
+    \c_gravy_Vert_tl   {   \autoVerts #1 }
+    \c_gravy_lVert_tl  {  \autolVerts #1 }
+  }
+}
+
+\ExplSyntaxOff
+
+\NewDocumentCommand\autotparens{ r() }{
+  \left(#1\right)
+}
+
+\NewDocumentCommand\autolparens{ r\lparen\rparen }{
+  \left\lparen#1\right\rparen
+}
+
+\NewDocumentCommand\autotbracks{ r[] }{
+  \left[#1\right]
+}
+
+\NewDocumentCommand\autolbracks{ r\lbrack\rbrack }{
+  \left\lbrack#1\right\rbrack
+}
+
+\NewDocumentCommand\autotbraces{ r\{\} }{
+  \left\{#1\right\}
+}
+
+\NewDocumentCommand\autolbraces{ r\lbrace\rbrace }{
+  \left\lbrace#1\right\rbrace
+}
+
+\NewDocumentCommand\autotangles{ r<> }{
+  \left<#1\right>
+}
+
+\NewDocumentCommand\autolangles{ r\langle\rangle }{
+  \left\langle#1\right\rangle
+}
+
+\NewDocumentCommand\autotverts{ r|| }{
+  \left|#1\right|
+}
+
+\NewDocumentCommand\autoverts{ r\vert\vert }{
+  \left\vert#1\right\vert
+}
+
+\NewDocumentCommand\autolverts{ r\lvert\rvert }{
+  \left\lvert#1\right\rvert
+}
+
+\NewDocumentCommand\autotVerts{ r\|\| }{
+  \left\|#1\right\|
+}
+
+\NewDocumentCommand\autoVerts{ r\Vert\Vert }{
+  \left\Vert#1\right\Vert
+}
+
+\NewDocumentCommand\autolVerts{ r\lVert\rVert }{
+  \left\lVert#1\right\rVert
+}
+
 % derivatives
-% command names inspired by package physics
 
 % see: https://tex.stackexchange.com/a/523272
-\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand*\dd{%
+  \mathop{}\!\mathrm{d}
+}
 
 % see: https://tug.org/TUGboat/tb18-1/tb54becc.pdf (p. 46)
-\newcommand*{\deriv}[3][]{%
-\frac{\dd^{#1}#2}{\dd #3^{#1}}}
-\newcommand*{\pderiv}[3][]{%
-\frac{\partial^{#1}#2}{\partial #3^{#1}}}
+\newcommand*\deriv[3][]{%
+  \frac{\dd^{#1}#2}{\dd #3^{#1}}
+}
+\newcommand*\pderiv[3][]{%
+  \frac{\partial^{#1}#2}{\partial #3^{#1}}
+}
 
 % aliases
 \let\dv\deriv
