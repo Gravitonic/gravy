@@ -109,14 +109,38 @@
   \mathop{}\!\mathrm{d}
 }
 
-% see: https://tug.org/TUGboat/tb18-1/tb54becc.pdf (p. 46)
-\newcommand*\deriv[3][]{%
-  \frac{\dd^{#1}#2}{\dd #3^{#1}}
+\NewDocumentCommand\deriv{ s o m m }{
+  \IfBooleanTF{#1}{
+    \IfNoValueTF{#2}{
+      \dd #3/\dd #4
+    }{
+      \dd^{#2} #3/\dd #4^{#2}
+    }
+  }{
+    \IfNoValueTF{#2}{
+      \frac{\dd #3}{\dd #4}
+    }{
+      \frac{\dd^{#2} #3}{\dd #4^{#2}}
+    }
+  }
 }
-\newcommand*\pderiv[3][]{%
-  \frac{\partial^{#1}#2}{\partial #3^{#1}}
+
+\NewDocumentCommand\pderiv{ s o m m }{
+  \IfBooleanTF{#1}{
+    \IfNoValueTF{#2}{
+      \partial #3/\partial #4
+    }{
+      \partial^{#2} #3/\partial #4^{#2}
+    }
+  }{
+    \IfNoValueTF{#2}{
+      \frac{\partial #3}{\partial #4}
+    }{
+      \frac{\partial^{#2} #3}{\partial #4^{#2}}
+    }
+  }
 }
 
 % aliases
-\let\dv\deriv
-\let\pdv\pderiv
+\NewCommandCopy\dv\deriv
+\NewCommandCopy\pdv\pderiv
