@@ -122,3 +122,21 @@
 \vocab{term}
 
 \auto
+
+\abs{value}
+\abs[size]{value}
+\abs*{value}
+\norm{value}
+\norm[size]{value}
+\norm*{value}
+\set{value}
+\set[size]{value}
+\set*{value}
+\floor{value}
+\floor[size]{value}
+\floor*{value}
+\ceil{value}
+\ceil[size]{value}
+\ceil*{value}
+
+\given

@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{gravycommands}
 
-% bracket sizing
+% automatic delimiter sizing
 \ExplSyntaxOn
 
 % variable prefix: t for text version, macro name for macro version
@@ -102,6 +102,66 @@
   \left\lVert#1\right\rVert
 }
 
+% semantic delimiter command names
+\ExplSyntaxOn
+
+% usage:
+% \abs{x} to produce \left|x\right|
+% \abs[\big]{x} to produce \big|x\big|
+% \abs*{x} to produce |x|
+\NewDocumentCommand\abs{s o m}{
+  \__gravy_semantic_delim:nnnnn { #1 } { #2 } { #3 } { \lvert } { \rvert }
+}
+
+\NewDocumentCommand\norm{s o m}{
+  \__gravy_semantic_delim:nnnnn { #1 } { #2 } { #3 } { \lVert } { \rVert }
+}
+
+\NewDocumentCommand\set{s o m}{
+  \__gravy_semantic_delim:nnnnn { #1 } { #2 } { \,#3\, } { \lbrace } { \rbrace }
+}
+
+\NewDocumentCommand\floor{s o m}{
+  \__gravy_semantic_delim:nnnnn { #1 } { #2 } { #3 } { \lfloor } { \rfloor }
+}
+
+\NewDocumentCommand\ceil{s o m}{
+  \__gravy_semantic_delim:nnnnn { #1 } { #2 } { #3 } { \lceil } { \rceil }
+}
+
+% #1: whether to not size delimiters (boolean)
+% #2: delimiter size (possibly -NoValue-)
+% #3: content
+% #4: open delimiter
+% #5: close delimiter
+\cs_set:Nn \__gravy_semantic_delim:nnnnn {
+  \bool_if:NTF #1 {
+    #4#3#5
+  } {
+    \tl_if_novalue:nTF { #2 } {
+      \left#4#3\right#5
+    } {
+      #2#4#3#2#5
+    }
+  }
+}
+
+\ExplSyntaxOff
+
+% set such that/given
+
+% \currentgrouptype is 16 if there is a preceding \left
+% see: https://tex.stackexchange.com/a/45732
+\newcommand*\given{
+  \ifnum\currentgrouptype=16
+    \mathrel{}\middle\vert\mathrel{}
+  \else
+    \mid
+  \fi
+}
+
+\let\suchthat\given
+
 % derivatives
 
 % see: https://tex.stackexchange.com/a/523272
@@ -109,37 +169,38 @@
   \mathop{}\!\mathrm{d}
 }
 
+\ExplSyntaxOn
+
 \NewDocumentCommand\deriv{ s o m m }{
-  \IfBooleanTF{#1}{
-    \IfNoValueTF{#2}{
-      \dd #3/\dd #4
-    }{
-      \dd^{#2} #3/\dd #4^{#2}
+  \__gravy_deriv:nnnnn { #1 } { #2 } { \dd } { #3 } { #4 }
+}
+
+\NewDocumentCommand\pderiv{ s o m m }{
+  \__gravy_deriv:nnnnn { #1 } { #2 } { \partial } { #3 } { #4 }
+}
+
+% #1: whether to use inline fraction (boolean)
+% #2: order of derivative (possibly -NoValue-)
+% #3: derivative operator (e.g. \dd, \partial, etc.)
+% #4: numerator
+% #5: denominator
+\cs_set:Nn \__gravy_deriv:nnnnn {
+  \bool_if:NTF #1 {
+    \tl_if_novalue:nTF { #2 } {
+      #3 #4/#3 #5
+    } {
+      #3^{#2} #4/#3 #5^{#2}
     }
-  }{
-    \IfNoValueTF{#2}{
-      \frac{\dd #3}{\dd #4}
-    }{
-      \frac{\dd^{#2} #3}{\dd #4^{#2}}
+  } {
+    \tl_if_novalue:nTF { #2 } {
+      \frac{#3 #4}{#3 #5}
+    } {
+      \frac{#3^{#2} #4}{#3 #5^{#2}}
     }
   }
 }
 
-\NewDocumentCommand\pderiv{ s o m m }{
-  \IfBooleanTF{#1}{
-    \IfNoValueTF{#2}{
-      \partial #3/\partial #4
-    }{
-      \partial^{#2} #3/\partial #4^{#2}
-    }
-  }{
-    \IfNoValueTF{#2}{
-      \frac{\partial #3}{\partial #4}
-    }{
-      \frac{\partial^{#2} #3}{\partial #4^{#2}}
-    }
-  }
-}
+\ExplSyntaxOff
 
 % aliases
 \NewCommandCopy\dv\deriv

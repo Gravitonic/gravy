@@ -55,7 +55,53 @@
     "vocab{}": {
       "snippet": "vocab{${1:term}}"
     },
-    "auto": {}
+    "auto": {},
+    "abs{}": {
+      "snippet": "abs{${1:value}}"
+    },
+    "abs[]{}": {
+      "snippet": "abs[${2:size}]{${1:value}}"
+    },
+    "abs*{}": {
+      "snippet": "abs*{${1:value}}"
+    },
+    "norm{}": {
+      "snippet": "norm{${1:value}}"
+    },
+    "norm[]{}": {
+      "snippet": "norm[${2:size}]{${1:value}}"
+    },
+    "norm*{}": {
+      "snippet": "norm*{${1:value}}"
+    },
+    "set{}": {
+      "snippet": "set{${1:value}}"
+    },
+    "set[]{}": {
+      "snippet": "set[${2:size}]{${1:value}}"
+    },
+    "set*{}": {
+      "snippet": "set*{${1:value}}"
+    },
+    "floor{}": {
+      "snippet": "floor{${1:value}}"
+    },
+    "floor[]{}": {
+      "snippet": "floor[${2:size}]{${1:value}}"
+    },
+    "floor*{}": {
+      "snippet": "floor*{${1:value}}"
+    },
+    "ceil{}": {
+      "snippet": "ceil{${1:value}}"
+    },
+    "ceil[]{}": {
+      "snippet": "ceil[${2:size}]{${1:value}}"
+    },
+    "ceil*{}": {
+      "snippet": "ceil*{${1:value}}"
+    },
+    "given": {}
   },
   "envs": {
     "theorem": {},
