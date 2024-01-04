@@ -56,6 +56,9 @@
       "snippet": "vocab{${1:term}}"
     },
     "auto": {},
+    "auto[]": {
+      "snippet": "auto[${1:}]"
+    },
     "abs{}": {
       "snippet": "abs{${1:value}}"
     },

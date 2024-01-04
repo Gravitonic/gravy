@@ -20,27 +20,40 @@
 \tl_const:Nn \c_gravy_Vert_tl   {   \Vert }
 \tl_const:Nn \c_gravy_lVert_tl  {  \lVert }
 
+% internal command, redefined to find delimited content as appropriate
+% see: https://tex.stackexchange.com/a/706258/183767
+\NewDocumentCommand{\autox}{}{}
+
 % \auto: automatic bracket sizing
 % automatically sizes detected delimiters
 % example usage: \auto(\frac{1}{2})
-\NewDocumentCommand\auto{ m }{
-  \tl_set:Nx \l_firstchar_tl { \tl_head:n { #1 } }
-
-  \tl_case:Nn \l_firstchar_tl {
-    \c_gravy_tparen_tl { \autotparens #1 }
-    \c_gravy_lparen_tl { \autolparens #1 }
-    \c_gravy_tbrack_tl { \autotbracks #1 }
-    \c_gravy_lbrack_tl { \autolbracks #1 }
-    \c_gravy_tbrace_tl { \autotbraces #1 }
-    \c_gravy_lbrace_tl { \autolbraces #1 }
-    \c_gravy_tangle_tl { \autotangles #1 }
-    \c_gravy_langle_tl { \autolangles #1 }
-    \c_gravy_tvert_tl  {  \autotverts #1 }
-    \c_gravy_vert_tl   {   \autoverts #1 }
-    \c_gravy_lvert_tl  {  \autolverts #1 }
-    \c_gravy_tVert_tl  {  \autotVerts #1 }
-    \c_gravy_Vert_tl   {   \autoVerts #1 }
-    \c_gravy_lVert_tl  {  \autolVerts #1 }
+% can also manually specify delimiters to look for in optional argument
+% optional argument should receive only two tokens
+% example usage: \auto[.\rvert] .\dv{f}{t} \rvert_{t = 0}
+\NewDocumentCommand\auto{ o m }{
+  \tl_if_novalue:nTF { #1 } {
+    \tl_set:Nx \l_firstchar_tl { \tl_head:n { #2 } }
+    \tl_case:Nn \l_firstchar_tl {
+      \c_gravy_tparen_tl { \autotparens #2 }
+      \c_gravy_lparen_tl { \autolparens #2 }
+      \c_gravy_tbrack_tl { \autotbracks #2 }
+      \c_gravy_lbrack_tl { \autolbracks #2 }
+      \c_gravy_tbrace_tl { \autotbraces #2 }
+      \c_gravy_lbrace_tl { \autolbraces #2 }
+      \c_gravy_tangle_tl { \autotangles #2 }
+      \c_gravy_langle_tl { \autolangles #2 }
+      \c_gravy_tvert_tl  {  \autotverts #2 }
+      \c_gravy_vert_tl   {   \autoverts #2 }
+      \c_gravy_lvert_tl  {  \autolverts #2 }
+      \c_gravy_tVert_tl  {  \autotVerts #2 }
+      \c_gravy_Vert_tl   {   \autoVerts #2 }
+      \c_gravy_lVert_tl  {  \autolVerts #2 }
+    }
+  } {
+    \tl_set:Nx \l_open_tl { \tl_head:n { #1 } }
+    \tl_set:Nx \l_close_tl { \tl_item:nn { #1 } { -1 } }
+    \RenewDocumentCommand\autox{ r#1 } { \left\l_open_tl ##1 \right\l_close_tl }
+    \autox #2
   }
 }
 

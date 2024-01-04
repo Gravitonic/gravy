@@ -122,6 +122,7 @@
 \vocab{term}
 
 \auto
+\auto[]
 
 \abs{value}
 \abs[size]{value}
