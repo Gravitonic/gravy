@@ -14,7 +14,8 @@
     "xcolor": [],
     "amsthm": [],
     "thmtools": [],
-    "tcolorbox": []
+    "tcolorbox": [],
+    "minted": []
   },
   "macros": {
     "dd{}": {

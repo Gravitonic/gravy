@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gravycommands}
+
+\RequirePackage{gravycolors}
+
+\RequirePackage{minted}
+
+\usemintedstyle{gravy}
+
+\setminted{
+  autogobble=true,
+  breaklines=true,
+  linenos=true,
+  bgcolor=gravy@llightgray
+}
+
+\setmintedinline{bgcolor={}}

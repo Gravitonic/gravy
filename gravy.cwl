@@ -14,6 +14,7 @@
 #include:amsthm
 #include:thmtools
 #include:tcolorbox
+#include:minted
 # see: https://github.com/James-Yu/LaTeX-Workshop/wiki/Intellisense#commands-starting-with-
 
 \begin{theorem}

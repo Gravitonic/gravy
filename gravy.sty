@@ -6,6 +6,11 @@
   \@gravy@nodatetrue
 }
 
+\newif\if@gravy@minted\@gravy@mintedfalse
+\DeclareOption{minted}{
+  \@gravy@mintedtrue
+}
+
 \ProcessOptions*
 
 % koma-script inserts the date using {\usekomafont{date}{\@date \par}} followed by a 1em \vskip
@@ -121,3 +126,7 @@
 ]{hyperref}
 
 \RequirePackage{gravycommands}
+
+\if@gravy@minted
+  \RequirePackage{gravyminted}
+\fi
