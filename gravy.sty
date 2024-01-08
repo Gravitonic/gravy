@@ -35,12 +35,20 @@
 }
 
 \RequirePackage{geometry}
-\geometry{
-  paper=letterpaper,
-  hmargin=132pt,
-  top=84pt,
-  bottom=156pt
-}
+\if@twoside
+  \geometry{
+    inner=99pt,outer=165pt,
+    top=84pt,
+    bottom=156pt
+  }
+\else
+  \geometry{
+    paper=letterpaper,
+    hmargin=132pt,
+    top=84pt,
+    bottom=156pt
+  }
+\fi
 
 % improve ligature copy-pasting
 % see: https://tex.stackexchange.com/a/64191
