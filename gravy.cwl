@@ -1,4 +1,19 @@
 # gravy completion word list file
+#include:fontenc
+#include:libertine
+#include:newtxmath
+#include:FiraMono
+#include:geometry
+#include:enumitem
+#include:microtype
+#include:scrlayer-scrpage
+#include:mathtools
+#include:esint
+#include:hyperref
+#include:xcolor
+#include:amsthm
+#include:thmtools
+#include:tcolorbox
 # see: https://github.com/James-Yu/LaTeX-Workshop/wiki/Intellisense#commands-starting-with-
 
 \begin{theorem}

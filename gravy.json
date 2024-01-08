@@ -1,5 +1,21 @@
 {
-  "includes": {},
+  "includes": {
+    "fontenc": [],
+    "libertine": [],
+    "newtxmath": [],
+    "FiraMono": [],
+    "geometry": [],
+    "enumitem": [],
+    "microtype": [],
+    "scrlayer-scrpage": [],
+    "mathtools": [],
+    "esint": [],
+    "hyperref": [],
+    "xcolor": [],
+    "amsthm": [],
+    "thmtools": [],
+    "tcolorbox": []
+  },
   "macros": {
     "dd{}": {
       "snippet": "dd{${1:argument}}"
