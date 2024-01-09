@@ -1,5 +1,8 @@
 .DS_Store
 
+# something I don't know
+*.hd
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

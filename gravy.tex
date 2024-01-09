@@ -1,0 +1,259 @@
+\makeatletter
+\declare@file@substitution{article.cls}{scrartcl.cls}
+\makeatother
+
+\documentclass{l3doc}
+
+% l3doc sets \parindent to 2em
+% restore to scrartcl value of 1em
+\setlength\parindent{1em}
+
+\usepackage[nodate]{gravy}
+
+\usepackage{lipsum}
+
+
+\title{The \pkg{gravy} package}
+\author{Dylan Yang}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+
+\section{Introduction}
+
+The \pkg{gravy} package is a collection of my personal \LaTeX\ styles and commands.
+
+\section{Usage}
+
+Typically, \pkg{gravy} should be loaded as a package (i.e. with \cs{usepackage}) after specifying a KOMA-Script document class. Note that \pkg{gravy} currently only supports pdf\TeX.
+
+For convenience, the \cls{gravyartcl} and \cls{gravyreprt} document classes are also available. These classes simply load the corresponding KOMA-Script document class and the \pkg{gravy} package.
+
+\pkg{gravy} has two options. The \texttt{nodate} option disables the printing of the date when using \cs{maketitle}. The \texttt{minted} option loads custom styles for use with the \pkg{minted} package. Options can be passed to the \pkg{gravy} package or document classes.
+
+\section{Typography}
+
+\subsection{Fonts}
+
+The serif font is Linux Libertine, while the sans serif font is \textsf{Linux Biolinum}. The monospace font is \texttt{Fira Mono}. The math font is the libertine math font provided by the \pkg{newtxmath} package.
+
+Here is a demonstration of some of the supported ligatures and kerning.
+
+\begin{center}
+  \huge{ff fi fl ffi ffl}
+
+  \vspace{0.5em}
+
+  \huge{\textit{ff fi fl ffi ffl}}
+
+  \vspace{0.5em}
+
+  \huge{AV WA Ay Kw Te fo w.}
+\end{center}
+
+Note that additional ligatures such as `Th' and `Qu' are not currently supported given the use of \texttt{T1} font encoding; see \href{https://tex.stackexchange.com/q/373440}{this question} on the TeX StackExchange. Additionally, the current monospace font, Fira Mono, does not support certain characters such as `\textbackslash' when using \texttt{OT1} encoding instead. Future versions may add an option for Xe\LaTeX\ or Lua\LaTeX\ compatibility, which support OpenType fonts and should avoid these issues.
+
+\subsection{Line Width}
+
+\newlength{\alphabetwidth}
+\settowidth{\alphabetwidth}{abcdefghijklmnopqrstuvwxyz}
+
+One lowercase alphabet is \the\alphabetwidth\ in width; the line width is \the\linewidth. This should follow the general typographic advice that the line width should be about two to three lowercase alphabets.
+
+\subsection{Fonts and Styles}
+
+\begin{itemize}
+  \item The quick brown fox jumps over the lazy dog
+  \item \textbf{The quick brown fox jumps over the lazy dog}
+  \item \emph{The quick brown fox jumps over the lazy dog}
+  \item \textbf{\emph{The quick brown fox jumps over the lazy dog}}
+  \item \textsc{The quick brown fox jumps over the lazy dog}
+  \item \textsc{\textbf{The quick brown fox jumps over the lazy dog}}
+  \item \textsc{\emph{The quick brown fox jumps over the lazy dog}}
+  \item \textsc{\emph{\textbf{The quick brown fox jumps over the lazy dog}}}
+  \item \textsf{The quick brown fox jumps over the lazy dog}
+  \item \textsf{\textbf{The quick brown fox jumps over the lazy dog}}
+  \item \textsf{\emph{The quick brown fox jumps over the lazy dog}}
+  \item \textsf{\emph{\textbf{The quick brown fox jumps over the lazy dog}}}
+  \item \texttt{The quick brown fox jumps over the lazy dog}
+  \item \texttt{\textbf{The quick brown fox jumps over the lazy dog}}
+  \item \texttt{\emph{The quick brown fox jumps over the lazy dog}}
+  \item \texttt{\textbf{\emph{The quick brown fox jumps over the lazy dog}}}
+\end{itemize}
+
+\section{Commands}
+
+\subsection{Delimiter Sizing}
+
+\begin{function}{\auto}
+  \begin{syntax}
+    \cs{auto} [\meta{opening delimiter}\meta{closing delimiter}] \meta{delimited expression}
+  \end{syntax}
+
+  When typesetting math equations, it is common to use \cs{left} and \cs{right} to automatically size delimiters, but this can become cumbersome in more complicated use cases. \cs{auto} automatically detects the next pair of delimiters and sizes them appropriately. For instance, "\auto(\frac{1}{2})" produces \[ \auto(\frac{1}{2}). \]
+
+  The delimiters that can be automatically detected are: \begin{itemize}
+    \item "(" and ")"
+    \item "\lparen" and "\rparen"
+    \item "[" and "]"
+    \item "\lbrack" and "\rbrack"
+    \item "\{" and "\}"
+    \item "\lbrace" and "\rbrace"
+    \item "<" and ">"
+    \item "\langle" and "\rangle"
+    \item "|" and "|"
+    \item "\vert" and "\vert"
+    \item "\lvert" and "\rvert"
+    \item "\|" and "\|"
+    \item "\Vert" and "\Vert"
+    \item "\lVert" and "\rVert"
+  \end{itemize}
+
+  Note that under the hood, \cs{auto} only looks for the next supported opening delimiter and assumes that the closing delimiter based on that, so it only supports matching pairs of delimiters. For instance, "\auto.\dv{f}{t}\rvert_{t=0}" does not work. Instead, to handle arbitrary pairs of delimiters, \cs{auto} can also take one optional argument, which should be two tokens representing the opening and closing delimiters. "\auto[.\rvert].\dv{f}{t}\rvert_{t=0}" works instead, producing \[ \auto[.\rvert] .\dv{f}{t}\rvert_{t=0}. \]
+\end{function}
+
+\subsection{Derivatives}
+
+\begin{function}{\dd}
+  \begin{syntax}
+    \cs{dd} \marg{variable}
+  \end{syntax}
+
+  The \cs{dd} command is used to typeset the differential operator. It produces an upright `d' with math operator spacing preceding it, as shown in the example below:
+  \[\int x \dd x.\]
+\end{function}
+
+\begin{function}{\deriv, \dv, \pderiv, \pdv}
+  \begin{syntax}
+    \cs{deriv}  * \oarg{power} \marg{numerator} \marg{denominator}
+    \cs{dv}     * \oarg{power} \marg{numerator} \marg{denominator}
+    \cs{pderiv} * \oarg{power} \marg{numerator} \marg{denominator}
+    \cs{pdv}    * \oarg{power} \marg{numerator} \marg{denominator}
+  \end{syntax}
+
+  Derivatives can be typeset using the \cs{deriv} and \cs{dv} commands (which are equivalent), while partial derivatives can be typeset using the \cs{pderiv} and \cs{pdv} commands (which are also equivalent). They take two mandatory arguments, the \meta{numerator} and \meta{denominator}, as well as an optional argument \meta{power} which specifies the power to which the derivative is raised and an optional star to produce an inline fraction instead of a display fraction.
+\end{function}
+
+\subsection{Semantic Delimiters}
+
+\begin{function}{\abs, \norm, \set, \floor, \ceil}
+  \begin{syntax}
+    \cs{abs} * \oarg{size} \marg{expression}
+  \end{syntax}
+
+  \cs{abs}, \cs{norm}, \cs{set}, \cs{floor}, and \cs{ceil} offer more semantic names to wrap an \meta{expression} in the appropriate delimiters. By default, the size of the delimiters is automatically determined using \cs{left} and \cs{right}, but this can be overridden by specifying a specific size using the optional \meta{size} argument or by including an optional star to avoid sizing the delimiters.
+
+  Note that \cs{set} also adds a \verb|\,| space after the opening brace and before the closing brace. The set on the left below uses \cs{set} while the set on the right does not: \[ \set{1, 2, 3} \quad \{1, 2, 3\} \]
+\end{function}
+
+\subsection{Sets}
+
+\begin{function}{\given, \suchthat}
+  \begin{syntax}
+    \cs{given}
+    \cs{suchthat}
+  \end{syntax}
+
+  The \cs{given} command (alias: \cs{suchthat}) is used to specify the condition for a set. If it is preceded by a (yet-to-be-closed) \cs{left}, then it is equivalent to "\middle\vert" with math relation spacing on both sides; otherwise, it is equivalent to "\mid".
+\end{function}
+
+\section{Theorems}
+
+The \pkg{gravy} package provides a range of colored environments for theorems, lemmas, definitions, remarks, etc. These environments are loosely color-coded by their general semantic meaning.
+
+These environments are defined with the \pkg{thmtools} package, and thus take one optional argument which can either be a name or a key-value list of a name and a label.
+
+\subsection{Blue}
+
+Blue environments semantically refer to factual claims that are believed or proven to be true. The following environments, along with starred versions of each, are provided: \begin{itemize}
+  \item "theorem"
+  \item "lemma"
+  \item "corollary"
+  \item "proposition"
+  \item "conjecture"
+  \item "criterion"
+  \item "assertion"
+\end{itemize}
+
+By default, these environments are numbered; the starred versions produce unnumbered theorems. An example of the styling is shown below.
+
+\begin{theorem*}
+  \lipsum[1][1-6]
+\end{theorem*}
+
+\subsection{Red}
+
+Red environments semantically refer to definitions or algorithms, which by definition accurately describe their subject matter. The following environments, along with starred versions of each, are provided: \begin{itemize}
+  \item "definition"
+  \item "algorithm"
+\end{itemize}
+
+By default, these environments are numbered; the starred versions produce unnumbered theorems. An example of the styling is shown below.
+
+\begin{definition*}
+  \lipsum[1][1-6]
+\end{definition*}
+
+\subsection{Orange}
+
+Orange environments semantically refer to tangential or additional information. The following environments, with no starred versions, are provided: \begin{itemize}
+  \item "remark"
+  \item "note"
+\end{itemize}
+
+These environments are not numbered. An example of the styling is shown below.
+
+\begin{remark}
+  \lipsum[1][1-6]
+\end{remark}
+
+\subsection{Green}
+
+Green environments semantically refer to exercises for the reader. The following environments, along with starred versions of eaach, are provided: \begin{itemize}
+  \item "example"
+  \item "problem"
+  \item "question"
+\end{itemize}
+
+By default, these environments are numbered; the starred versions produce unnumbered theorems. An example of the styling is shown below.
+
+\begin{example*}
+  \lipsum[1][1-6]
+\end{example*}
+
+\subsection{Proofs}
+
+\begin{proof}
+  This is a proof, created using the \env{proof} environment.
+\end{proof}
+
+\begin{proof*}
+  This is a proof with no QED symbol, created using the \env{proof*} environment.
+\end{proof*}
+
+\begin{solution}
+  This is a solution, created using the \env{solution} environment. Note that it has no QED symbol.
+\end{solution}
+
+\section{Vocabulary}
+
+\begin{function}{\vocab}
+  \begin{syntax}
+    \cs{vocab} \marg{term}
+  \end{syntax}
+
+  Vocabulary terms can be emphasized with the \cs{vocab} command. For instance, \vocab{this} is a vocabulary word. The red color used is the same as for definitions and algorithms, and is not used for any types of links.
+\end{function}
+
+\section{Code}
+
+Styles for code snippets are not loaded by default, and are instead loaded by passing the \texttt{minted} option to the \pkg{gravy} package or document classes. This option loads the \pkg{minted} package and defines a custom style for it. The \pkg{minted} package is not loaded if the \texttt{minted} option is not passed.
+
+In order to function, these styles require the \texttt{pygments-gravy} custom style for the Pygments syntax highlighter. For more information and installation instructions, see the \href{https://github.com/Gravitonic/pygments-gravy}{Gravitonic/pygments-gravy} GitHub repository.
+
+\end{document}

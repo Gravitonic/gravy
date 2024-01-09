@@ -71,7 +71,7 @@
 \fi
 
 % list formatting
-\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{enumitem}
 \setlist[itemize,enumerate,1]{leftmargin=0pt}
 \setlist[itemize,3]{label=\textopenbullet}
 \setlist{listparindent=\parindent,noitemsep}
@@ -115,15 +115,16 @@
 }
 
 % hyperlinks
-\RequirePackage[
+\RequirePackage[pdfusetitle]{hyperref}
+
+\hypersetup{
   linktoc=all,
   colorlinks=true,
   urlcolor=gravy@blue,
   linkcolor=gravy@blue,
   citecolor=gravy@green,
   addtopdfcreator=gravyTeX,
-  pdfusetitle
-]{hyperref}
+}
 
 \RequirePackage{gravycommands}
 
