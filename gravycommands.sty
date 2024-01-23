@@ -142,6 +142,10 @@
   \__gravy_semantic_delim:nnnnn { #1 } { #2 } { #3 } { \lceil } { \rceil }
 }
 
+\NewDocumentCommand\innerp{s o m m}{
+  \__gravy_semantic_delim:nnnnn { #1 } { #2 } { #3, #4 } { \langle } { \rangle }
+}
+
 % #1: whether to not size delimiters (boolean)
 % #2: delimiter size (possibly -NoValue-)
 % #3: content
@@ -160,6 +164,8 @@
 }
 
 \ExplSyntaxOff
+
+\newcommand{\conj}[1]{\ensuremath{\overline{#1}}}
 
 % set such that/given
 
@@ -214,6 +220,104 @@
 }
 
 \ExplSyntaxOff
+
+% sets
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\FF}{\ensuremath{\mathbb{F}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+
+% bold vectors
+\newcommand{\bvec}[1]{\ensuremath{\mathbf{#1}}}
+
+% matrix shorthands
+\NewDocumentCommand\mtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{matrix}#2\end{matrix}
+  }{
+    \begin{matrix*}[#1]#2\end{matrix*}
+  }
+}
+\NewDocumentCommand\pmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{pmatrix}#2\end{pmatrix}
+  }{
+    \begin{pmatrix*}[#1]#2\end{pmatrix*}
+  }
+}
+\NewDocumentCommand\bmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{bmatrix}#2\end{bmatrix}
+  }{
+    \begin{bmatrix*}[#1]#2\end{bmatrix*}
+  }
+}
+\NewDocumentCommand\Bmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{Bmatrix}#2\end{Bmatrix}
+  }{
+    \begin{Bmatrix*}[#1]#2\end{Bmatrix*}
+  }
+}
+\NewDocumentCommand\vmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{vmatrix}#2\end{vmatrix}
+  }{
+    \begin{vmatrix*}[#1]#2\end{vmatrix*}
+  }
+}
+\NewDocumentCommand\Vmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{Vmatrix}#2\end{Vmatrix}
+  }{
+    \begin{Vmatrix*}[#1]#2\end{Vmatrix*}
+  }
+}
+
+\NewDocumentCommand\smtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{smallmatrix}#2\end{smallmatrix}
+  }{
+    \begin{smallmatrix*}[#1]#2\end{smallmatrix*}
+  }
+}
+\NewDocumentCommand\psmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{psmallmatrix}#2\end{psmallmatrix}
+  }{
+    \begin{psmallmatrix*}[#1]#2\end{psmallmatrix*}
+  }
+}
+\NewDocumentCommand\bsmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{bsmallmatrix}#2\end{bsmallmatrix}
+  }{
+    \begin{bsmallmatrix*}[#1]#2\end{bsmallmatrix*}
+  }
+}
+\NewDocumentCommand\Bsmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{Bsmallmatrix}#2\end{Bsmallmatrix}
+  }{
+    \begin{Bsmallmatrix*}[#1]#2\end{Bsmallmatrix*}
+  }
+}
+\NewDocumentCommand\vsmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{vsmallmatrix}#2\end{vsmallmatrix}
+  }{
+    \begin{vsmallmatrix*}[#1]#2\end{vsmallmatrix*}
+  }
+}
+\NewDocumentCommand\Vsmtx{o m}{
+  \IfNoValueTF{#1}{
+    \begin{Vsmallmatrix}#2\end{Vsmallmatrix}
+  }{
+    \begin{Vsmallmatrix*}[#1]#2\end{Vsmallmatrix*}
+  }
+}
 
 % aliases
 \NewCommandCopy\dv\deriv

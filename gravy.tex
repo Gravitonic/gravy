@@ -151,6 +151,22 @@ One lowercase alphabet is \the\alphabetwidth\ in width; the line width is \the\l
   Note that \cs{set} also adds a \verb|\,| space after the opening brace and before the closing brace. The set on the left below uses \cs{set} while the set on the right does not: \[ \set{1, 2, 3} \quad \{1, 2, 3\} \]
 \end{function}
 
+\begin{function}{\innerp}
+  \begin{syntax}
+    \cs{innerp} * \oarg{size} \marg{expression} \marg{expression}
+  \end{syntax}
+
+  \cs{innerp} typesets inner products, e.g. $\innerp{3}{4}$. It likewise has automatically sized delimiters by default which can be manually sized with an optional argument, but it takes two arguments instead of one.
+\end{function}
+
+\begin{function}{\conj}
+  \begin{syntax}
+    \cs{conj} \marg{expression}
+  \end{syntax}
+
+  \cs{conj} is an alias for \cs{overline} that also works outside of math mode. It is a more semantic name for the (complex) conjugate.
+\end{function}
+
 \subsection{Sets}
 
 \begin{function}{\given, \suchthat}
@@ -160,6 +176,50 @@ One lowercase alphabet is \the\alphabetwidth\ in width; the line width is \the\l
   \end{syntax}
 
   The \cs{given} command (alias: \cs{suchthat}) is used to specify the condition for a set. If it is preceded by a (yet-to-be-closed) \cs{left}, then it is equivalent to "\middle\vert" with math relation spacing on both sides; otherwise, it is equivalent to "\mid".
+\end{function}
+
+\begin{function}{\RR, \CC, \NN, \FF, \QQ, \ZZ}
+  \begin{syntax}
+    \cs{RR}
+    \cs{CC}
+    \cs{NN}
+    \cs{FF}
+    \cs{QQ}
+    \cs{ZZ}
+  \end{syntax}
+
+  Some shorthands for common blackboard bold (\cs{mathbb}) letters are provided. These also work outside of math mode, or rather, will automatically enter math mode in that case.
+\end{function}
+
+\subsection{Vectors}
+
+\begin{function}{\bvec}
+  \begin{syntax}
+    \cs{bvec} \marg{expression}
+  \end{syntax}
+
+  The \cs{bvec} command is a shorthand for \cs{mathbf} that works outside of math mode as well. It is a shorter and more semantic way to typeset vectors in bold.
+\end{function}
+
+\begin{function}{\mtx, \pmtx, \bmtx, \Bmtx, \vmtx, \Vmtx}
+  \begin{syntax}
+    \cs{mtx} \oarg{alignment} \marg{contents}
+    \cs{pmtx} \oarg{alignment} \marg{contents}
+    \cs{bmtx} \oarg{alignment} \marg{contents}
+    \cs{Bmtx} \oarg{alignment} \marg{contents}
+    \cs{vmtx} \oarg{alignment} \marg{contents}
+    \cs{Vmtx} \oarg{alignment} \marg{contents}
+  \end{syntax}
+
+  Matrices can also be typset with a shorthand command instead of an environment; this is useful for smaller matrices. For instance:
+
+  \[ \mtx{33 & 4 \\ 5 & 6} \]
+
+  An optional argument can be used to specify the alignment of the columns, using the starred matrix environment variants provided in \pkg{mathtools}. For instance:
+
+  \[ \mtx[r]{33 & 4 \\ 5 & 6} \]
+
+  The similarly named \cs{smtx}, \cs{psmtx}, etc. refer to the small matrix variants. They likewise can take an optional argument for the alignment.
 \end{function}
 
 \section{Theorems}

@@ -121,7 +121,100 @@
     "ceil*{}": {
       "snippet": "ceil*{${1:value}}"
     },
-    "given": {}
+    "innerp{}{}": {
+      "snippet": "innerp{${1:value}}{${2:value}}"
+    },
+    "innerp[]{}{}": {
+      "snippet": "innerp[${3:size}]{${1:value}}{${2:value}}"
+    },
+    "innerp*{}{}": {
+      "snippet": "innerp*{${1:value}}{${2:value}}"
+    },
+    "conj{}": {
+      "snippet": "conj{${1:value}}"
+    },
+    "given": {},
+    "RR": {},
+    "CC": {},
+    "NN": {},
+    "FF": {},
+    "QQ": {},
+    "ZZ": {},
+    "bvec{}": {
+      "snippet": "bvec{${1:v}}"
+    },
+    "mtx{}": {
+      "snippet": "mtx{${1:contents}}"
+    },
+    "mtx[]{}": {
+      "snippet": "mtx[${2:alignment}]{${1:contents}}"
+    },
+    "pmtx{}": {
+      "snippet": "pmtx{${1:contents}}"
+    },
+    "pmtx[]{}": {
+      "snippet": "pmtx[${2:alignment}]{${1:contents}}"
+    },
+    "bmtx{}": {
+      "snippet": "bmtx{${1:contents}}"
+    },
+    "bmtx[]{}": {
+      "snippet": "bmtx[${2:alignment}]{${1:contents}}"
+    },
+    "Bmtx{}": {
+      "snippet": "Bmtx{${1:contents}}"
+    },
+    "Bmtx[]{}": {
+      "snippet": "Bmtx[${2:alignment}]{${1:contents}}"
+    },
+    "vmtx{}": {
+      "snippet": "vmtx{${1:contents}}"
+    },
+    "vmtx[]{}": {
+      "snippet": "vmtx[${2:alignment}]{${1:contents}}"
+    },
+    "Vmtx{}": {
+      "snippet": "Vmtx{${1:contents}}"
+    },
+    "Vmtx[]{}": {
+      "snippet": "Vmtx[${2:alignment}]{${1:contents}}"
+    },
+    "smtx{}": {
+      "snippet": "smtx{${1:contents}}"
+    },
+    "smtx[]{}": {
+      "snippet": "smtx[${2:alignment}]{${1:contents}}"
+    },
+    "psmtx{}": {
+      "snippet": "psmtx{${1:contents}}"
+    },
+    "psmtx[]{}": {
+      "snippet": "psmtx[${2:alignment}]{${1:contents}}"
+    },
+    "bsmtx{}": {
+      "snippet": "bsmtx{${1:contents}}"
+    },
+    "bsmtx[]{}": {
+      "snippet": "bsmtx[${2:alignment}]{${1:contents}}"
+    },
+    "Bsmtx{}": {
+      "snippet": "Bsmtx{${1:contents}}"
+    },
+    "Bsmtx[]{}": {
+      "snippet": "Bsmtx[${2:alignment}]{${1:contents}}"
+    },
+    "vsmtx{}": {
+      "snippet": "vsmtx{${1:contents}}"
+    },
+    "vsmtx[]{}": {
+      "snippet": "vsmtx[${2:alignment}]{${1:contents}}"
+    },
+    "Vsmtx{}": {
+      "snippet": "Vsmtx{${1:contents}}"
+    },
+    "Vsmtx[]{}": {
+      "snippet": "Vsmtx[${2:alignment}]{${1:contents}}"
+    }
   },
   "envs": {
     "theorem": {},
