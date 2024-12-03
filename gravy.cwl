@@ -172,6 +172,19 @@
 
 \bvec{v}
 
+\diag
+\Span
+\tr
+\col
+\ran
+\rank
+\nullspace
+\nullity
+\spec
+
+\ord_{base}
+\Li
+
 \mtx{contents}
 \mtx[alignment]{contents}
 \pmtx{contents}
