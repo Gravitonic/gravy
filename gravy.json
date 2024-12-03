@@ -1,363 +1,840 @@
 {
-  "includes": {
-    "fontenc": [],
-    "libertine": [],
-    "newtxmath": [],
-    "FiraMono": [],
-    "geometry": [],
-    "enumitem": [],
-    "microtype": [],
-    "scrlayer-scrpage": [],
-    "mathtools": [],
-    "esint": [],
-    "hyperref": [],
-    "xcolor": [],
-    "amsthm": [],
-    "thmtools": [],
-    "tcolorbox": [],
-    "minted": []
-  },
-  "macros": {
-    "dd{}": {
-      "snippet": "dd{${1:argument}}"
+  "deps": [
+    {
+      "name": "fontenc"
     },
-    "deriv{}{}": {
-      "snippet": "deriv{${1:top}}{${2:bottom}}"
+    {
+      "name": "libertine"
     },
-    "deriv[]{}{}": {
-      "snippet": "deriv[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "newtxmath"
     },
-    "dv{}{}": {
-      "snippet": "dv{${1:top}}{${2:bottom}}"
+    {
+      "name": "FiraMono"
     },
-    "dv[]{}{}": {
-      "snippet": "dv[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "geometry"
     },
-    "pderiv{}{}": {
-      "snippet": "pderiv{${1:top}}{${2:bottom}}"
+    {
+      "name": "enumitem"
     },
-    "pderiv[]{}{}": {
-      "snippet": "pderiv[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "microtype"
     },
-    "pdv{}{}": {
-      "snippet": "pdv{${1:top}}{${2:bottom}}"
+    {
+      "name": "scrlayer-scrpage"
     },
-    "pdv[]{}{}": {
-      "snippet": "pdv[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "mathtools"
     },
-    "deriv*{}{}": {
-      "snippet": "deriv*{${1:top}}{${2:bottom}}"
+    {
+      "name": "esint"
     },
-    "deriv*[]{}{}": {
-      "snippet": "deriv*[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "hyperref"
     },
-    "dv*{}{}": {
-      "snippet": "dv*{${1:top}}{${2:bottom}}"
+    {
+      "name": "xcolor"
     },
-    "dv*[]{}{}": {
-      "snippet": "dv*[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "amsthm"
     },
-    "pderiv*{}{}": {
-      "snippet": "pderiv*{${1:top}}{${2:bottom}}"
+    {
+      "name": "thmtools"
     },
-    "pderiv*[]{}{}": {
-      "snippet": "pderiv*[${3:pow}]{${1:top}}{${2:bottom}}"
+    {
+      "name": "tcolorbox"
     },
-    "pdv*{}{}": {
-      "snippet": "pdv*{${1:top}}{${2:bottom}}"
-    },
-    "pdv*[]{}{}": {
-      "snippet": "pdv*[${3:pow}]{${1:top}}{${2:bottom}}"
-    },
-    "vocab{}": {
-      "snippet": "vocab{${1:term}}"
-    },
-    "auto": {},
-    "auto[]": {
-      "snippet": "auto[${1:}]"
-    },
-    "abs{}": {
-      "snippet": "abs{${1:value}}"
-    },
-    "abs[]{}": {
-      "snippet": "abs[${2:size}]{${1:value}}"
-    },
-    "abs*{}": {
-      "snippet": "abs*{${1:value}}"
-    },
-    "norm{}": {
-      "snippet": "norm{${1:value}}"
-    },
-    "norm[]{}": {
-      "snippet": "norm[${2:size}]{${1:value}}"
-    },
-    "norm*{}": {
-      "snippet": "norm*{${1:value}}"
-    },
-    "set{}": {
-      "snippet": "set{${1:value}}"
-    },
-    "set[]{}": {
-      "snippet": "set[${2:size}]{${1:value}}"
-    },
-    "set*{}": {
-      "snippet": "set*{${1:value}}"
-    },
-    "floor{}": {
-      "snippet": "floor{${1:value}}"
-    },
-    "floor[]{}": {
-      "snippet": "floor[${2:size}]{${1:value}}"
-    },
-    "floor*{}": {
-      "snippet": "floor*{${1:value}}"
-    },
-    "ceil{}": {
-      "snippet": "ceil{${1:value}}"
-    },
-    "ceil[]{}": {
-      "snippet": "ceil[${2:size}]{${1:value}}"
-    },
-    "ceil*{}": {
-      "snippet": "ceil*{${1:value}}"
-    },
-    "innerp{}{}": {
-      "snippet": "innerp{${1:value}}{${2:value}}"
-    },
-    "innerp[]{}{}": {
-      "snippet": "innerp[${3:size}]{${1:value}}{${2:value}}"
-    },
-    "innerp*{}{}": {
-      "snippet": "innerp*{${1:value}}{${2:value}}"
-    },
-    "conj{}": {
-      "snippet": "conj{${1:value}}"
-    },
-    "given": {},
-    "RR": {},
-    "CC": {},
-    "NN": {},
-    "FF": {},
-    "QQ": {},
-    "ZZ": {},
-    "bvec{}": {
-      "snippet": "bvec{${1:v}}"
-    },
-    "mtx{}": {
-      "snippet": "mtx{${1:contents}}"
-    },
-    "mtx[]{}": {
-      "snippet": "mtx[${2:alignment}]{${1:contents}}"
-    },
-    "pmtx{}": {
-      "snippet": "pmtx{${1:contents}}"
-    },
-    "pmtx[]{}": {
-      "snippet": "pmtx[${2:alignment}]{${1:contents}}"
-    },
-    "bmtx{}": {
-      "snippet": "bmtx{${1:contents}}"
-    },
-    "bmtx[]{}": {
-      "snippet": "bmtx[${2:alignment}]{${1:contents}}"
-    },
-    "Bmtx{}": {
-      "snippet": "Bmtx{${1:contents}}"
-    },
-    "Bmtx[]{}": {
-      "snippet": "Bmtx[${2:alignment}]{${1:contents}}"
-    },
-    "vmtx{}": {
-      "snippet": "vmtx{${1:contents}}"
-    },
-    "vmtx[]{}": {
-      "snippet": "vmtx[${2:alignment}]{${1:contents}}"
-    },
-    "Vmtx{}": {
-      "snippet": "Vmtx{${1:contents}}"
-    },
-    "Vmtx[]{}": {
-      "snippet": "Vmtx[${2:alignment}]{${1:contents}}"
-    },
-    "smtx{}": {
-      "snippet": "smtx{${1:contents}}"
-    },
-    "smtx[]{}": {
-      "snippet": "smtx[${2:alignment}]{${1:contents}}"
-    },
-    "psmtx{}": {
-      "snippet": "psmtx{${1:contents}}"
-    },
-    "psmtx[]{}": {
-      "snippet": "psmtx[${2:alignment}]{${1:contents}}"
-    },
-    "bsmtx{}": {
-      "snippet": "bsmtx{${1:contents}}"
-    },
-    "bsmtx[]{}": {
-      "snippet": "bsmtx[${2:alignment}]{${1:contents}}"
-    },
-    "Bsmtx{}": {
-      "snippet": "Bsmtx{${1:contents}}"
-    },
-    "Bsmtx[]{}": {
-      "snippet": "Bsmtx[${2:alignment}]{${1:contents}}"
-    },
-    "vsmtx{}": {
-      "snippet": "vsmtx{${1:contents}}"
-    },
-    "vsmtx[]{}": {
-      "snippet": "vsmtx[${2:alignment}]{${1:contents}}"
-    },
-    "Vsmtx{}": {
-      "snippet": "Vsmtx{${1:contents}}"
-    },
-    "Vsmtx[]{}": {
-      "snippet": "Vsmtx[${2:alignment}]{${1:contents}}"
+    {
+      "name": "minted"
     }
-  },
-  "envs": {
-    "theorem": {},
-    "theorem[]": {
+  ],
+  "macros": [
+    {
+      "name": "dd",
+      "arg": {
+        "format": "{}",
+        "snippet": "dd{${1:argument}}"
+      }
+    },
+    {
+      "name": "deriv",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "deriv{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "deriv",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "deriv[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "dv",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "dv{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "dv",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "dv[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pderiv",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "pderiv{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pderiv",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "pderiv[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pdv",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "pdv{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pdv",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "pdv[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "deriv*",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "deriv*{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "deriv*",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "deriv*[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "dv*",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "dv*{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "dv*",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "dv*[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pderiv*",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "pderiv*{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pderiv*",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "pderiv*[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pdv*",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "pdv*{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "pdv*",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "pdv*[${3:pow}]{${1:top}}{${2:bottom}}"
+      }
+    },
+    {
+      "name": "vocab",
+      "arg": {
+        "format": "{}",
+        "snippet": "vocab{${1:term}}"
+      }
+    },
+    {
+      "name": "auto"
+    },
+    {
+      "name": "auto",
+      "arg": {
+        "format": "[]",
+        "snippet": "auto[${1:}]"
+      }
+    },
+    {
+      "name": "abs",
+      "arg": {
+        "format": "{}",
+        "snippet": "abs{${1:value}}"
+      }
+    },
+    {
+      "name": "abs",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "abs[${2:size}]{${1:value}}"
+      }
+    },
+    {
+      "name": "abs*",
+      "arg": {
+        "format": "{}",
+        "snippet": "abs*{${1:value}}"
+      }
+    },
+    {
+      "name": "norm",
+      "arg": {
+        "format": "{}",
+        "snippet": "norm{${1:value}}"
+      }
+    },
+    {
+      "name": "norm",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "norm[${2:size}]{${1:value}}"
+      }
+    },
+    {
+      "name": "norm*",
+      "arg": {
+        "format": "{}",
+        "snippet": "norm*{${1:value}}"
+      }
+    },
+    {
+      "name": "set",
+      "arg": {
+        "format": "{}",
+        "snippet": "set{${1:value}}"
+      }
+    },
+    {
+      "name": "set",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "set[${2:size}]{${1:value}}"
+      }
+    },
+    {
+      "name": "set*",
+      "arg": {
+        "format": "{}",
+        "snippet": "set*{${1:value}}"
+      }
+    },
+    {
+      "name": "floor",
+      "arg": {
+        "format": "{}",
+        "snippet": "floor{${1:value}}"
+      }
+    },
+    {
+      "name": "floor",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "floor[${2:size}]{${1:value}}"
+      }
+    },
+    {
+      "name": "floor*",
+      "arg": {
+        "format": "{}",
+        "snippet": "floor*{${1:value}}"
+      }
+    },
+    {
+      "name": "ceil",
+      "arg": {
+        "format": "{}",
+        "snippet": "ceil{${1:value}}"
+      }
+    },
+    {
+      "name": "ceil",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "ceil[${2:size}]{${1:value}}"
+      }
+    },
+    {
+      "name": "ceil*",
+      "arg": {
+        "format": "{}",
+        "snippet": "ceil*{${1:value}}"
+      }
+    },
+    {
+      "name": "innerp",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "innerp{${1:value}}{${2:value}}"
+      }
+    },
+    {
+      "name": "innerp",
+      "arg": {
+        "format": "[]{}{}",
+        "snippet": "innerp[${3:size}]{${1:value}}{${2:value}}"
+      }
+    },
+    {
+      "name": "innerp*",
+      "arg": {
+        "format": "{}{}",
+        "snippet": "innerp*{${1:value}}{${2:value}}"
+      }
+    },
+    {
+      "name": "conj",
+      "arg": {
+        "format": "{}",
+        "snippet": "conj{${1:value}}"
+      }
+    },
+    {
+      "name": "given"
+    },
+    {
+      "name": "RR"
+    },
+    {
+      "name": "CC"
+    },
+    {
+      "name": "NN"
+    },
+    {
+      "name": "FF"
+    },
+    {
+      "name": "QQ"
+    },
+    {
+      "name": "ZZ"
+    },
+    {
+      "name": "bvec",
+      "arg": {
+        "format": "{}",
+        "snippet": "bvec{${1:v}}"
+      }
+    },
+    {
+      "name": "diag"
+    },
+    {
+      "name": "Span"
+    },
+    {
+      "name": "tr"
+    },
+    {
+      "name": "col"
+    },
+    {
+      "name": "ran"
+    },
+    {
+      "name": "rank"
+    },
+    {
+      "name": "nullspace"
+    },
+    {
+      "name": "nullity"
+    },
+    {
+      "name": "spec"
+    },
+    {
+      "name": "ord_",
+      "arg": {
+        "format": "{}",
+        "snippet": "ord_{${1:base}}"
+      }
+    },
+    {
+      "name": "Li"
+    },
+    {
+      "name": "mtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "mtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "mtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "mtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "pmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "pmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "pmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "pmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "bmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "bmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "bmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "bmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "Bmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "Bmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "Bmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "Bmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "vmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "vmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "vmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "vmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "Vmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "Vmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "Vmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "Vmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "smtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "smtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "smtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "smtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "psmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "psmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "psmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "psmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "bsmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "bsmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "bsmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "bsmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "Bsmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "Bsmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "Bsmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "Bsmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "vsmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "vsmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "vsmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "vsmtx[${2:alignment}]{${1:contents}}"
+      }
+    },
+    {
+      "name": "Vsmtx",
+      "arg": {
+        "format": "{}",
+        "snippet": "Vsmtx{${1:contents}}"
+      }
+    },
+    {
+      "name": "Vsmtx",
+      "arg": {
+        "format": "[]{}",
+        "snippet": "Vsmtx[${2:alignment}]{${1:contents}}"
+      }
+    }
+  ],
+  "envs": [
+    {
+      "name": "theorem"
+    },
+    {
       "name": "theorem",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "theorem*": {},
-    "theorem*[]": {
+    {
+      "name": "theorem*"
+    },
+    {
       "name": "theorem*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "lemma": {},
-    "lemma[]": {
+    {
+      "name": "lemma"
+    },
+    {
       "name": "lemma",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "lemma*": {},
-    "lemma*[]": {
+    {
+      "name": "lemma*"
+    },
+    {
       "name": "lemma*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "corollary": {},
-    "corollary[]": {
+    {
+      "name": "corollary"
+    },
+    {
       "name": "corollary",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "corollary*": {},
-    "corollary*[]": {
+    {
+      "name": "corollary*"
+    },
+    {
       "name": "corollary*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "proposition": {},
-    "proposition[]": {
+    {
+      "name": "proposition"
+    },
+    {
       "name": "proposition",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "proposition*": {},
-    "proposition*[]": {
+    {
+      "name": "proposition*"
+    },
+    {
       "name": "proposition*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "conjecture": {},
-    "conjecture[]": {
+    {
+      "name": "conjecture"
+    },
+    {
       "name": "conjecture",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "conjecture*": {},
-    "conjecture*[]": {
+    {
+      "name": "conjecture*"
+    },
+    {
       "name": "conjecture*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "criterion": {},
-    "criterion[]": {
+    {
+      "name": "criterion"
+    },
+    {
       "name": "criterion",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "criterion*": {},
-    "criterion*[]": {
+    {
+      "name": "criterion*"
+    },
+    {
       "name": "criterion*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "assertion": {},
-    "assertion[]": {
+    {
+      "name": "assertion"
+    },
+    {
       "name": "assertion",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "assertion*": {},
-    "assertion*[]": {
+    {
+      "name": "assertion*"
+    },
+    {
       "name": "assertion*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "definition": {},
-    "definition[]": {
+    {
+      "name": "definition"
+    },
+    {
       "name": "definition",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "definition*": {},
-    "definition*[]": {
+    {
+      "name": "definition*"
+    },
+    {
       "name": "definition*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "algorithm": {},
-    "algorithm[]": {
+    {
+      "name": "algorithm"
+    },
+    {
       "name": "algorithm",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "algorithm*": {},
-    "algorithm*[]": {
+    {
+      "name": "algorithm*"
+    },
+    {
       "name": "algorithm*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "remark": {},
-    "remark[]": {
+    {
+      "name": "remark"
+    },
+    {
       "name": "remark",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "note": {},
-    "note[]": {
+    {
+      "name": "note"
+    },
+    {
       "name": "note",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "example": {},
-    "example[]": {
+    {
+      "name": "example"
+    },
+    {
       "name": "example",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "example*": {},
-    "example*[]": {
+    {
+      "name": "example*"
+    },
+    {
       "name": "example*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "problem": {},
-    "problem[]": {
+    {
+      "name": "problem"
+    },
+    {
       "name": "problem",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "problem*": {},
-    "problem*[]": {
+    {
+      "name": "problem*"
+    },
+    {
       "name": "problem*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "question": {},
-    "question[]": {
+    {
+      "name": "question"
+    },
+    {
       "name": "question",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "question*": {},
-    "question*[]": {
+    {
+      "name": "question*"
+    },
+    {
       "name": "question*",
-      "snippet": "[${1:options}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:options}]"
+      }
     },
-    "proof*": {},
-    "proof*[]": {
+    {
+      "name": "proof*"
+    },
+    {
       "name": "proof*",
-      "snippet": "[${1:caption}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:caption}]"
+      }
     },
-    "solution": {},
-    "solution[]": {
+    {
+      "name": "solution"
+    },
+    {
       "name": "solution",
-      "snippet": "[${1:caption}]"
+      "arg": {
+        "format": "[]",
+        "snippet": "[${1:caption}]"
+      }
     }
-  },
-  "options": [],
-  "keyvals": []
+  ],
+  "keys": {},
+  "args": []
 }
